@@ -1,10 +1,11 @@
 import './App.css';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Todos from '../../todos/components/Todos/Todos';
 import Users from '../../users/components/Users/Users';
 import TopBar from '../TopBar/TopBar';
+import Home from '../Home/Home';
 
 export default function App() {
   return (
@@ -12,9 +13,11 @@ export default function App() {
       <BrowserRouter>
         <TopBar />
         <div className="App-Route-Container">
-          <Route path="/todos" component={Todos} />
-          <Route path="/users" component={Users} />
-        </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/todos" element={<Todos />} />
+            <Route path="users/*" element={<Users />} />
+          </Routes></div>
       </BrowserRouter>
     </div>
   );

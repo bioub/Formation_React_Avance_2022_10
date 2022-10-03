@@ -1,69 +1,39 @@
-import CircularProgress from '@material-ui/core/CircularProgress';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { Component } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { userFetch, userFetchSuccess } from '../../actions';
 import { getAll } from '../../api/users';
 
-export default class UsersList extends Component {
-  async componentDidMount() {
-    // redux-thunk / redux-saga / redux-promise / redux-observable
-    this.props.dispatch(userFetch());
-    const users = await getAll();
-    this.props.dispatch(userFetchSuccess(users));
-  }
-  render() {
-    const { match, users = [], loading } = this.props;
+export default function UsersList() {
+  const dispatch = useDispatch();
+  const { items = [], loading } = useSelector((state) => state.users);
 
-    return (
-      <div className="UsersList">
-        {loading ? (
-          <CircularProgress />
-        ) : (
-          <List component="nav">
-            {users.map((user) => (
-              <ListItem
-                key={user.id}
-                button
-                component={Link}
-                to={match.path + '/' + user.id}
-              >
-                <ListItemText>{user.name}</ListItemText>
-              </ListItem>
-            ))}
-          </List>
-        )}
-      </div>
-    );
-  }
+  useEffect(() => {
+    (async () => {
+      dispatch(userFetch());
+      const users = await getAll();
+      dispatch(userFetchSuccess(users));
+    })();
+  }, [dispatch]);
+
+  return (
+    <div className="UsersList">
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        <List component="nav">
+          {items.map((user) => (
+            <ListItem key={user.id} button component={Link} to={String(user.id)}>
+              <ListItemText>{user.name}</ListItemText>
+            </ListItem>
+          ))}
+        </List>
+      )}
+    </div>
+  );
 }
-
-// export class UsersList extends Component {
-//   state = {
-//     users: [],
-//   };
-//   async componentDidMount() {
-//     const users = await getAll();
-//     this.setState({
-//       users,
-//     });
-//   }
-//   render() {
-//     const {match} = this.props;
-
-//     return (
-//       <div className="UsersList">
-//         <List component="nav">
-//           {this.state.users.map(user => (
-//             <ListItem key={user.id} button component={Link} to={match.path + "/" + user.id}>
-//               <ListItemText>{user.name}</ListItemText>
-//             </ListItem>
-//           ))}
-//         </List>
-//       </div>
-//     );
-//   }
-// }

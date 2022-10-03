@@ -1,32 +1,27 @@
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import AddIcon from '@material-ui/icons/Add';
-import { Link, Route, Switch } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import AddIcon from '@mui/icons-material/Add';
+import { Link, Route, Routes } from 'react-router-dom';
 
-import UserListContainer from '../../containers/UsersListContainer';
-import UsersShowContainer from '../../containers/UsersShowContainer';
 import UsersAdd from '../UsersAdd/UsersAdd';
+import UsersList from '../UsersList/UsersList';
+import UsersShow from '../UsersShow/UsersShow';
 
-export default function Users({ match }) {
+export default function Users() {
   return (
     <div className="Users">
       <Grid container spacing={10}>
         <Grid item xs={12} sm={4}>
-          <UserListContainer match={match} />
-          <Button
-            color="primary"
-            variant="outlined"
-            component={Link}
-            to={match.path + '/add'}
-          >
+          <UsersList />
+          <Button color="primary" variant="outlined" component={Link} to="add">
             Add <AddIcon />
           </Button>
         </Grid>
         <Grid item xs={12} sm={8}>
-          <Switch>
-            <Route path={match.path + '/add'} component={UsersAdd} />
-            <Route path={match.path + '/:id'} component={UsersShowContainer} />
-          </Switch>
+          <Routes>
+            <Route path="add" element={<UsersAdd />} />
+            <Route path=":id" element={<UsersShow />} />
+          </Routes>
         </Grid>
       </Grid>
     </div>

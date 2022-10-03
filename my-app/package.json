@@ -2,29 +2,23 @@
   "name": "my-app",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.1",
-    "@material-ui/icons": "^4.9.1",
-    "axios": "^0.20.0",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/material": "^5.10.7",
+    "axios": "^0.27.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-redux": "^6.0.1",
-    "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^6.4.1",
+    "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.8"
   },
   "devDependencies": {
-    "import-sort": "^6.0.0",
-    "import-sort-cli": "^6.0.0",
-    "import-sort-style-module": "^6.0.0",
-    "prettier": "^2.2.1",
     "react-scripts": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "prettier": "prettier 'src/**/*' --write",
-    "import-sort": "import-sort 'src/**/*.js' --write"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,11 +32,5 @@
   "prettier": {
     "trailingComma": "all",
     "singleQuote": true
-  },
-  "importSort": {
-    ".js, .jsx, .es6, .es, .mjs, .ts, .tsx": {
-      "parser": "babylon",
-      "style": "module"
-    }
   }
 }

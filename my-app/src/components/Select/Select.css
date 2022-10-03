@@ -1,0 +1,22 @@
+.Select {
+  position: relative;
+  width: 200px;
+  cursor: pointer;
+}
+
+.Select .selected {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.Select .items {
+  position: absolute;
+  border: 1px solid black;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.Select .item {
+  padding: 5px;
+}
