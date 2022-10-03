@@ -1,5 +1,5 @@
 import { Component, createRef } from 'react';
-import './Select.css';
+import styles from './Select.module.scss';
 
 class Select extends Component {
   state = {
@@ -32,12 +32,12 @@ class Select extends Component {
     const { open } = this.state;
 
     return (
-      <div className="Select" onClick={this.handleClick} ref={this.hostRef}>
-        <div className="selected">{selected}</div>
+      <div className={styles.host} onClick={this.handleClick} ref={this.hostRef}>
+        <div className={styles.selected}>{selected}</div>
         {open && (
-          <div className="items">
+          <div className={styles.items}>
             {items.map((item) => (
-              <div className="item" key={item} onClick={() => onSelected(item)}>
+              <div className={styles.item} key={item} onClick={() => onSelected(item)}>
                 {item}
               </div>
             ))}
