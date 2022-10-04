@@ -8,6 +8,7 @@ import TopBar from '../TopBar/TopBar';
 import Home from '../Home/Home';
 
 export default function App() {
+  console.log('App render');
   return (
     <div className="App">
       <BrowserRouter>

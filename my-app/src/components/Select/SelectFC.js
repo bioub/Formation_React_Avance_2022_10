@@ -20,7 +20,7 @@ function useEventListener(element, eventName, callback) {
   }, []);
 }
 
-function SelectFC({ items, selected, onSelected }) {
+function SelectFC({ items, selected, onSelected, renderItem = (v) => v }) {
   console.log('render SelectFC');
   const [open, setOpen] = useState(false) // 1er appel donne le 1er element du tableau
   // const [title, setTitle] = useState('Pick a color :') // 2e appel donne le 2e element du tableau
@@ -42,13 +42,19 @@ function SelectFC({ items, selected, onSelected }) {
   //   setOpen(false);
   // })
   useEffect(() => {
-    document.addEventListener('click', (event) => {
+    const listener = (event) => {
       if (hostRef.current.contains(event.target)) {
         return;
       }
 
       setOpen(false);
-    });
+    }
+    document.addEventListener('click', listener);
+
+    return () => {
+
+      document.removeEventListener('click', listener);
+    }
   }, []);
 
   return (
@@ -58,7 +64,7 @@ function SelectFC({ items, selected, onSelected }) {
         <div className={styles.items}>
           {items.map((item) => (
             <div className={styles.item} key={item} onClick={() => onSelected(item)}>
-              {item}
+              {renderItem(item)}
             </div>
           ))}
         </div>

@@ -21,8 +21,10 @@ class Home extends Component {
           onSelected={(item) => this.setState({ selectedPrenom: item })}
         />
         <SelectFC
-          selected={123}
+          selected={selectedPrenom}
           items={prenoms}
+          onSelected={(item) => this.setState({ selectedPrenom: item })}
+          renderItem={(item) => item === selectedPrenom ? <b>{item}</b> : item}
         />
 
         <LoadingButton>

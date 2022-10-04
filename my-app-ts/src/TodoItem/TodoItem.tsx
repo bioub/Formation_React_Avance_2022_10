@@ -1,7 +1,12 @@
+import { Todo } from '../Todo';
 import './TodoItem.css';
 
-export default function TodoItem({ item, onDeleteItem }) {
-  console.log('TodoItem render');
+type Props = {
+  item: Todo;
+  onDeleteItem?(item: Todo): void;
+}
+
+export default function TodoItem({ item, onDeleteItem = () => {} }: Props) {
   return (
     <div className="TodoItem">
       <span>{item.text}</span>

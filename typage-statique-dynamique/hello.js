@@ -17,3 +17,8 @@ names.push('Toto');
 for (const n of names) {
   console.log(hello());
 }
+
+
+
+let tab = [];
+tab = [...tab]

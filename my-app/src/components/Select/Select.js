@@ -15,16 +15,22 @@ class Select extends Component {
     });
   };
 
-  componentDidMount() {
-    document.addEventListener('click', (event) => {
-      if (this.hostRef.current.contains(event.target)) {
-        return;
-      }
+  listener = (event) => {
+    if (this.hostRef.current.contains(event.target)) {
+      return;
+    }
 
-      this.setState({
-        open: false,
-      });
+    this.setState({
+      open: false,
     });
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.listener);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.listener);
   }
 
   render() {

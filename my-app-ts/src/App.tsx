@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Select from "./Select/Select";
 import SelectFC from "./Select/SelectFC";
+import TodoList from "./TodoList/TodoList";
 
 type Props = {
  
@@ -34,6 +35,8 @@ class App extends Component<Props, State> {
           items={prenoms}
           onSelected={(item) => this.setState({ selectedPrenom: item })}
         />
+
+        <TodoList count={3} items={[{id: 1, text: 'ABC'}, {id: 2, text: 'DEF'}]} />
       </div>
     );
   }
