@@ -1,0 +1,26 @@
+$main-color: pink;
+
+.host {
+  user-select: none;
+  position: relative;
+  width: 200px;
+  cursor: pointer
+}
+
+
+.selected {
+  border: 1px solid $main-color;
+  padding: 5px;
+}
+
+.items {
+  position: absolute;
+  border: 1px solid $main-color;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.item {
+  padding: 5px;
+}

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
