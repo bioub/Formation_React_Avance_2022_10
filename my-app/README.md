@@ -13,5 +13,5 @@ quand elle est définie pour faire le rendu de l'item
 
 ## TypeScript
 
-Récupérer le dossier `todos` et le migrer en TypeScript dans le projet `my-app-ts`
+Dans le dossier `todos` récupérer les composants `TodosList`, `TodoCount` et `TodoItem` et les migrer en TypeScript dans le projet `my-app-ts`
 
