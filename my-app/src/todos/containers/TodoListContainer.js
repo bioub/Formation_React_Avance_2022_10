@@ -11,3 +11,14 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(TodoList);
+
+// function TodoListContainer() {
+//   const state = store.getState();
+
+//   store.subscribe(() => {
+//     forceUpdate();
+//   });
+
+
+//   return <TodoList items={state.todos.items} count={state.todos.items.length} />
+// }

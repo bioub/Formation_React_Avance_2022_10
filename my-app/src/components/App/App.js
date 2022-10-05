@@ -6,6 +6,9 @@ import Todos from '../../todos/components/Todos/Todos';
 import Users from '../../users/components/Users/Users';
 import TopBar from '../TopBar/TopBar';
 import Home from '../Home/Home';
+import { lazy, Suspense } from 'react';
+
+const ReactTable = lazy(() => import( '../ReactTable/ReactTable'));
 
 export default function App() {
   console.log('App render');
@@ -18,6 +21,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/todos" element={<Todos />} />
             <Route path="users/*" element={<Users />} />
+            <Route path="/demo-xlsx" element={<Suspense fallback={<div>Loading...</div>}><ReactTable /></Suspense>} />
           </Routes></div>
       </BrowserRouter>
     </div>

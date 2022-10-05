@@ -1,11 +1,11 @@
 import { CircularProgress } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectUsersLoading } from '../../selectors';
+import { selectUsersItemsById, selectUsersLoading } from '../../selectors';
 
 export default function UsersShow() {
   const params = useParams();
-  const user = useSelector((state) => state.users.items.find((u) => u.id === Number(params.id)));
+  const user = useSelector((state) => selectUsersItemsById(state, params.id));
   const loading = useSelector(selectUsersLoading);
 
   return (

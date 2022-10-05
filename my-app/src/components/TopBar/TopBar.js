@@ -19,6 +19,10 @@ export default function TopBar() {
           <Button component={Link} to="/users" color="inherit">
             Users
           </Button>
+          <Button component={Link} to="/demo-xlsx" color="inherit">
+            Demo XLSX
+          </Button>
+
         </Toolbar>
       </AppBar>
     </div>

@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "exercices-optimisation"
+		},
+		{
+			"path": "hello-redux"
 		}
 	],
 	"settings": {}

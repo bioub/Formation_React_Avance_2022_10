@@ -27,11 +27,6 @@ function SelectFC({ items, selected, onSelected, renderItem = (v) => v }) {
 
   const hostRef = useRef();
 
-  useEffect(() => {
-    console.log('useEffect', open);
-    setOpen((op) => op + 1)
-  }, []);
-
   // useEffect(() => {}); // pas de 2e param, équivalent à componentDidMount + componentDidUpdate
   // useEffect(() => {}, []); // pas de 2e param, équivalent à componentDidMount
   // useEffect(() => {}, [selected]); // pas de 2e param, équivalent à componentDidMount + componentDidUpdate (if selected changed)
@@ -56,6 +51,8 @@ function SelectFC({ items, selected, onSelected, renderItem = (v) => v }) {
       document.removeEventListener('click', listener);
     }
   }, []);
+
+  console.log('open', open);
 
   return (
     <div className={styles.host} onClick={() => setOpen(!open)} ref={hostRef}>

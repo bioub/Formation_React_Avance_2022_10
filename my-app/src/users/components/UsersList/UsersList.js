@@ -3,22 +3,17 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { userFetch, userFetchSuccess } from '../../actions';
-import { getAll } from '../../api/users';
+import { getAllUsers } from '../../actions';
 
 export default function UsersList() {
   const dispatch = useDispatch();
   const { items = [], loading } = useSelector((state) => state.users);
 
   useEffect(() => {
-    (async () => {
-      dispatch(userFetch());
-      const users = await getAll();
-      dispatch(userFetchSuccess(users));
-    })();
+    dispatch(getAllUsers())
   }, [dispatch]);
 
   return (
