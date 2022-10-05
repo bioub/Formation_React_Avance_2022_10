@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "my-app"
+		},
+		{
+			"path": "hello-next"
+		},
+		{
+			"path": "typage-statique-dynamique"
+		},
+		{
+			"path": "my-app-ts"
+		},
+		{
+			"path": "react-communication"
+		},
+		{
+			"path": "optim"
+		},
+		{
+			"path": "exercices-optimisation"
+		}
+	],
+	"settings": {}
+}
